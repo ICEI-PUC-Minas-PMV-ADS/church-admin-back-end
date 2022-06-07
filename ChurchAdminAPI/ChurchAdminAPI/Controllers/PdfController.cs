@@ -32,61 +32,66 @@ namespace ChurchAdminAPI.Controllers
                 var sb = new StringBuilder();
                 sb.Append(@"
                    <html>
-                    <head></head>
-                    <body>
-                    <div class='header'><h1> RELATÓRIO DE MEMBROS </h1></div>
-                      <table align='center'>
-                    <tr>
-                         <th>MAT</th>
-                         <th>NOME</th>
-                         <th>CPF</th>
-                         <th>CEP</th>
-                         <th>ENDEREÇO</th>
-                         <th>NÚMERO</th>
-                         <th>COMPLEMENTO</th>
-                         <th>BAIRRO</th>
-                         <th>MUNICÍPIO</th>
-                         <th>ESTADO</th>
-                         <th>EMAIL</th>
-                         <th>TELEFONE</th>
-                         <th>SEXO</th>
-                         <th>DATA NASC</th>
-                         <th>NATURAL</th>
-                         <th>ESTADO CIVIL</th>
-                         <th>PROFISSÃO</th>
-                         <th>DATA BASTISMO</th>
-                         <th>CARGO IGREJA</th>
-                         <th>ID IGREJA</th>
-                         <th>STATUS</th>
-                    </tr>");
+                   <head>
+                            <h4>Membros - Church Admin</h4>
+                             
+             ");
 
                 foreach (var membro in membros)
                 {
-                    sb.AppendFormat(@"<tr>
-                                 <td>{0}</td>
-                                 <td>{1}</td>
-                                 <td>{2}</td>
-                                 <td>{3}</td>
-                                 <td>{4}</td>    
-                                 <td>{5}</td>  
-                                 <td>{6}</td>    
-                                 <td>{7}</td>    
-                                 <td>{8}</td>    
-                                 <td>{9}</td>    
-                                 <td>{10}</td>    
-                                 <td>{11}</td>    
-                                 <td>{12}</td>    
-                                 <td>{13}</td>    
-                                 <td>{14}</td>    
-                                 <td>{15}</td>    
-                                 <td>{16}</td>    
-                                 <td>{17}</td>    
-                                 <td>{18}</td>    
-                                 <td>{19}</td>    
-                                 <td>{20}</td>  
-                           </tr >", membro.Matricula, membro.Nome, membro.Cpf, membro.Cep, membro.Endereco, membro.Numero, membro.Complemento,
-                           membro.Bairro, membro.Municipio, membro.Estado, membro.Email, membro.Fone, membro.Sexo, membro.Nascimento, membro.Naturalidade,
-                           membro.EstadoCivil, membro.Profissao, membro.DataBatismoAguas, membro.CargoIgreja, membro.IgrejaID, membro.Status);
+                    sb.AppendFormat(@" 
+                         <h3>Matrícula: </h3>
+                         <p>{0}</p>
+                         <h3>Nome: </h3>
+                         <p>{1}</p>
+                         <h3>Cpf: </h3>
+                         <p>{2}</p>
+                         <h3>Cep: </h3>
+                         <p>{3}</p>
+                         <h3>Endereço: </h3>
+                         <p>{4}</p>
+                         <h3>Número: </h3>
+                         <p>{5}</p>
+                         <h3>Complemento: </h3>
+                         <p>{6}</p>
+                         <h3>Bairro: </h3>
+                         <p>{7}</p>
+                         <h3>Município: </h3>
+                         <p>{8}</p>
+                         <h3>Estado: </h3>
+                         <p>{9}</p>
+                         <h3>Email: </h3>
+                         <p>{10}</p>
+                         <h3>Telefone: </h3>
+                         <p>{11}</p>
+                         <h3>Sexo: </h3>
+                         <p>{12}</p>
+                         <h3>Data de nascimento: </h3>
+                         <p>{13}</p>
+                         <h3>Natural: </h3>
+                         <p>{14}</p>
+                         <h3>Estado civil: </h3>
+                         <p>{15}</p>
+                         <h3>Profissão: </h3>
+                         <p>{16}</p>
+                         <h3>Data batismo: </h3>
+                         <p>{17}</p>
+                         <h3>Cargo igreja: </h3>
+                         <p>{18}</p>
+                         <h3>Igreja Id: </h3>
+                         <p>{19}</p>
+                         <h3>Status: </h3>
+                         <p>{20}</p>
+                         <h3> </h3>
+                         <h3> </h3>
+                         <br>
+                         <hr>
+                         <br>
+
+                    ", membro.Matricula, membro.Nome, membro.Cpf, membro.Cep, membro.Endereco, membro.Numero, membro.Complemento,
+                       membro.Bairro, membro.Municipio, membro.Estado, membro.Email, membro.Fone, membro.Sexo, membro.Nascimento, membro.Naturalidade,
+                       membro.EstadoCivil, membro.Profissao, membro.DataBatismoAguas, membro.CargoIgreja, membro.IgrejaID, membro.Status);      
+                              
                 }
 
                 sb.Append(@"
@@ -112,8 +117,8 @@ namespace ChurchAdminAPI.Controllers
                 PagesCount = true,
                 HtmlContent = ObterHtmlString(),
                 WebSettings = { DefaultEncoding = "utf-8", UserStyleSheet = Path.Combine(Directory.GetCurrentDirectory(), "assets", "style.css") },
-                HeaderSettings = { FontName = "Roboto", FontSize = 6, Right = "Página [page] de [toPage]", Line = false },
-                FooterSettings = { FontName = "Roboto", FontSize = 6, Line = true, Center = "Church Admin"}
+                HeaderSettings = { FontName = "Roboto", FontSize = 10, Right = "Página [page] de [toPage]", Line = false },
+                FooterSettings = { FontName = "Roboto", FontSize = 10, Line = true, Center = "Church Admin"}
             };
 
             var pdf = new HtmlToPdfDocument
