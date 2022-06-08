@@ -15,7 +15,7 @@ namespace ChurchAdminAPI.Conexoes
         }
 
 
-        //MEMBRO
+        //Membro
         public void CadastrarMembro(Models.Membro membro)
         {
             try
@@ -67,26 +67,165 @@ namespace ChurchAdminAPI.Conexoes
 
                 using (SqlCommand cmd = new SqlCommand(sql, _conexao))
                 {
-                    cmd.Parameters.AddWithValue("Cpf", membro.Cpf);
-                    cmd.Parameters.AddWithValue("Nome", membro.Nome);
-                    cmd.Parameters.AddWithValue("Cep", membro.Cep);
-                    cmd.Parameters.AddWithValue("Endereco", membro.Endereco);
-                    cmd.Parameters.AddWithValue("Numero", membro.Numero);
-                    cmd.Parameters.AddWithValue("Complemento", membro.Complemento);
-                    cmd.Parameters.AddWithValue("Bairro", membro.Bairro);
-                    cmd.Parameters.AddWithValue("Municipio", membro.Municipio);
-                    cmd.Parameters.AddWithValue("Estado", membro.Estado);
-                    cmd.Parameters.AddWithValue("Email", membro.Email);
-                    cmd.Parameters.AddWithValue("Fone", membro.Fone);
-                    cmd.Parameters.AddWithValue("Sexo", membro.Sexo);
-                    cmd.Parameters.AddWithValue("Nascimento", membro.Nascimento);
-                    cmd.Parameters.AddWithValue("Naturalidade", membro.Naturalidade);
-                    cmd.Parameters.AddWithValue("EstadoCivil", membro.EstadoCivil);
-                    cmd.Parameters.AddWithValue("Profissao", membro.Profissao);
-                    cmd.Parameters.AddWithValue("DataBatismoAguas", membro.DataBatismoAguas);
-                    cmd.Parameters.AddWithValue("CargoIgreja", membro.CargoIgreja);
-                    cmd.Parameters.AddWithValue("IgrejaID", membro.IgrejaID);
-                    cmd.Parameters.AddWithValue("Status", membro.Status);
+
+                    if (String.IsNullOrEmpty(membro.Cpf))
+                    {
+                        cmd.Parameters.AddWithValue("Cpf", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Cpf", membro.Cpf);
+
+
+                    if (String.IsNullOrEmpty(membro.Nome))
+                    {
+                        cmd.Parameters.AddWithValue("Nome", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Nome", membro.Nome);
+
+
+                    if (String.IsNullOrEmpty(membro.Cep))
+                    {
+                        cmd.Parameters.AddWithValue("Cep", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Cep", membro.Cep);
+
+
+                    if (String.IsNullOrEmpty(membro.Endereco))
+                    {
+                        cmd.Parameters.AddWithValue("Endereco", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Endereco", membro.Endereco);
+
+
+                    if (String.IsNullOrEmpty(membro.Numero.ToString()))
+                    {
+                        cmd.Parameters.AddWithValue("Numero", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Numero", membro.Numero);
+
+
+                    if (String.IsNullOrEmpty(membro.Complemento))
+                    {
+                        cmd.Parameters.AddWithValue("Complemento", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Complemento", membro.Complemento);
+
+
+                    if (String.IsNullOrEmpty(membro.Bairro))
+                    {
+                        cmd.Parameters.AddWithValue("Bairro", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Bairro", membro.Bairro);
+
+
+                    if (String.IsNullOrEmpty(membro.Municipio))
+                    {
+                        cmd.Parameters.AddWithValue("Municipio", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Municipio", membro.Municipio);
+
+
+                    if (String.IsNullOrEmpty(membro.Estado))
+                    {
+                        cmd.Parameters.AddWithValue("Estado", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Estado", membro.Estado);
+
+
+                    if (String.IsNullOrEmpty(membro.Email))
+                    {
+                        cmd.Parameters.AddWithValue("Email", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Email", membro.Email);
+
+
+                    if (String.IsNullOrEmpty(membro.Fone))
+                    {
+                        cmd.Parameters.AddWithValue("Fone", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Fone", membro.Fone);
+
+
+                    if (String.IsNullOrEmpty(membro.Sexo.ToString()))
+                    {
+                        cmd.Parameters.AddWithValue("Sexo", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Sexo", membro.Sexo);
+
+
+                    if (String.IsNullOrEmpty(membro.Nascimento))
+                    {
+                        cmd.Parameters.AddWithValue("Nascimento", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Nascimento", membro.Nascimento);
+
+
+                    if (String.IsNullOrEmpty(membro.Naturalidade))
+                    {
+                        cmd.Parameters.AddWithValue("Naturalidade", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Naturalidade", membro.Naturalidade);
+
+
+                    if (String.IsNullOrEmpty(membro.EstadoCivil))
+                    {
+                        cmd.Parameters.AddWithValue("EstadoCivil", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("EstadoCivil", membro.EstadoCivil);
+
+
+                    if (String.IsNullOrEmpty(membro.Profissao))
+                    {
+                        cmd.Parameters.AddWithValue("Profissao", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Profissao", membro.Profissao);
+
+
+                    if (String.IsNullOrEmpty(membro.DataBatismoAguas))
+                    {
+                        cmd.Parameters.AddWithValue("DataBatismoAguas", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("DataBatismoAguas", membro.DataBatismoAguas);
+
+
+                    if (String.IsNullOrEmpty(membro.CargoIgreja))
+                    {
+                        cmd.Parameters.AddWithValue("CargoIgreja", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("CargoIgreja", membro.CargoIgreja);
+
+
+                    if (String.IsNullOrEmpty(membro.IgrejaID.ToString()))
+                    {
+                        cmd.Parameters.AddWithValue("IgrejaID", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("IgrejaID", membro.IgrejaID);
+
+                    if (String.IsNullOrEmpty(membro.Status.ToString()))
+                    {
+                        cmd.Parameters.AddWithValue("Status", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Status", membro.Status);
+
                     cmd.ExecuteNonQuery();
                 }
 
@@ -206,7 +345,14 @@ namespace ChurchAdminAPI.Conexoes
                     while (rdr.Read())
                     {
                         var membro = new Models.Membro();
-                        membro.Matricula = Convert.ToInt32(rdr["Matricula"]);
+
+                        if (String.IsNullOrEmpty(membro.Matricula.ToString()))
+                        {
+                            membro.Matricula = Convert.ToInt32("-");
+                        }
+                        else
+                            membro.Matricula = Convert.ToInt32(rdr["Matricula"]);
+
                         membro.Cpf = rdr["Cpf"].ToString();
                         membro.Nome = rdr["Nome"].ToString();
                         membro.Cep = rdr["Cep"].ToString();
@@ -240,44 +386,11 @@ namespace ChurchAdminAPI.Conexoes
 
             return membros;
         }
-        public List<Models.Membro> ListarMembrosPdf()
-        {
-            var membros = new List<Models.Membro>();
-            try
-            {
-                _conexao.Open();
-
-                string sql = @"Select * FROM Membro";
-
-                using (var cmd = new SqlCommand(sql, _conexao))
-                {
-                    var rdr = cmd.ExecuteReader();
-
-                    while (rdr.Read())
-                    {
-                        var membro = new Models.Membro();
-                        membro.Matricula = Convert.ToInt32(rdr["Matricula"]);
-                        membro.Nome = rdr["Nome"].ToString();          
-                        membro.Municipio = rdr["Municipio"].ToString();
-                        membro.Estado = rdr["Estado"].ToString();
-                        membro.Fone = rdr["Fone"].ToString();
-                        membro.CargoIgreja = rdr["CargoIgreja"].ToString();
-                     
-                        membros.Add(membro);
-                    }
-
-                }
-            }
-            finally
-            {
-                _conexao.Close();
-            }
-
-            return membros;
-        }
 
 
-        //IGREJA
+
+
+       //Igreja
         public void CadastrarIgreja(Models.Igreja igreja)
         {
             try
@@ -484,9 +597,10 @@ namespace ChurchAdminAPI.Conexoes
 
             return igrejas;
         }
+      
 
 
-        //USUARIO
+        //Usuario
         public Models.Usuario BuscarUsuario(string login, string senha)
         {
             try
@@ -524,5 +638,7 @@ namespace ChurchAdminAPI.Conexoes
             }
 
         }
+
+  
     }
 }

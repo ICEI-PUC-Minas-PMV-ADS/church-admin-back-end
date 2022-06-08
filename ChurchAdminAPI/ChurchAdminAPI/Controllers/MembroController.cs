@@ -17,7 +17,7 @@ namespace ChurchAdminAPI.Controllers
         }
 
         [HttpPost("v1/CadastrarMembro")]
-        public IActionResult CadastrarMembro(Models.Membro membro)
+        public IActionResult CadastrarMembro([FromQuery] Models.Membro membro)
         {
             try
             {
@@ -54,9 +54,9 @@ namespace ChurchAdminAPI.Controllers
             {
                 return StatusCode(400, ex.Message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500, ex.Message);
             }
            
         }
