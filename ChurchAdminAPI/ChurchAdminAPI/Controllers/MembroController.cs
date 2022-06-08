@@ -56,10 +56,11 @@ namespace ChurchAdminAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, ex.Message);
+                    return StatusCode(500, ex.Message);
             }
-           
+
         }
+        
 
         [HttpPut("v1/AtualizarMembro")]
         public IActionResult AtualizarMembro(Models.Membro membro)
@@ -72,11 +73,12 @@ namespace ChurchAdminAPI.Controllers
             catch (InvalidOperationException ex)
             {
                 return StatusCode(400, ex.Message);
-            }catch (Exception)
+            }
+            catch (Exception)
             {
                 return StatusCode(500);
             }
-            
+
         }
 
         [HttpDelete("v1/DeletarMembro/{matricula}")]
@@ -96,7 +98,7 @@ namespace ChurchAdminAPI.Controllers
             {
                 return StatusCode(500);
             }
-           
+
         }
 
         [HttpGet("v1/ListarMembros")]
@@ -117,6 +119,5 @@ namespace ChurchAdminAPI.Controllers
                 return StatusCode(500);
             }
         }
-
     }
 }
