@@ -17,7 +17,7 @@ namespace ChurchAdminAPI.Controllers
         }
 
         [HttpPost("v1/CadastrarMembro")]
-        public IActionResult CadastrarMembro([FromQuery] Models.Membro membro)
+        public IActionResult CadastrarMembro(Models.Membro membro)
         {
             try
             {

@@ -18,7 +18,7 @@ namespace ChurchAdminAPI.Controllers
         public PdfController(IConverter converter)
         {
             _converter = converter;
-            _sql = new Conexoes.Sql();
+            _sql = new Sql();
         }
 
 
@@ -109,7 +109,6 @@ namespace ChurchAdminAPI.Controllers
                 PaperSize = PaperKind.A4,
                 Margins = new MarginSettings { Top = 10 },
                 DocumentTitle = "Relatório de Membros - Church Admin",
-                Out = @"C:\ADS\Membros_Relatorio.pdf"
             };
 
             var objectSettings = new ObjectSettings
@@ -127,9 +126,8 @@ namespace ChurchAdminAPI.Controllers
                 Objects = { objectSettings }
             };
 
-            _converter.Convert(pdf);
-
-            return Ok("PDF gerado com sucesso!");
+            var file = _converter.Convert(pdf);
+            return File(file, "application/pdf");
         }
     }
 }
