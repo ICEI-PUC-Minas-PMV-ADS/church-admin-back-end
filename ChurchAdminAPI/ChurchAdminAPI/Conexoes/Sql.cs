@@ -346,33 +346,54 @@ namespace ChurchAdminAPI.Conexoes
                     {
                         var membro = new Models.Membro();
 
-                        if (String.IsNullOrEmpty(membro.Matricula.ToString()))
-                        {
-                            membro.Matricula = Convert.ToInt32("-");
-                        }
-                        else
-                            membro.Matricula = Convert.ToInt32(rdr["Matricula"]);
-
+                        membro.Matricula = Convert.ToInt32(rdr["Matricula"]);
                         membro.Cpf = rdr["Cpf"].ToString();
                         membro.Nome = rdr["Nome"].ToString();
                         membro.Cep = rdr["Cep"].ToString();
                         membro.Endereco = rdr["Endereco"].ToString();
-                        membro.Numero = Convert.ToInt32(rdr["Numero"]);
+
+                        if (String.IsNullOrEmpty(membro.Numero.ToString()))
+                        {
+                            membro.Numero = null;
+                        }
+                        else
+                            membro.Numero = Convert.ToInt32(rdr["Numero"]);
+
                         membro.Complemento = rdr["Complemento"].ToString();
                         membro.Bairro = rdr["Bairro"].ToString();
                         membro.Municipio = rdr["Municipio"].ToString();
                         membro.Estado = rdr["Estado"].ToString();
                         membro.Email = rdr["Email"].ToString();
                         membro.Fone = rdr["Fone"].ToString();
-                        membro.Sexo = Convert.ToChar(rdr["Sexo"]);
+
+                        if (String.IsNullOrEmpty(membro.Sexo.ToString()))
+                        {
+                            membro.Sexo = null;
+                        }
+                        else
+                            membro.Sexo = Convert.ToChar(rdr["Sexo"].ToString());
+
                         membro.Nascimento = rdr["Nascimento"].ToString();
                         membro.Naturalidade = rdr["Naturalidade"].ToString();
                         membro.EstadoCivil = rdr["EstadoCivil"].ToString();
                         membro.Profissao = rdr["Profissao"].ToString();
                         membro.DataBatismoAguas = rdr["DataBatismoAguas"].ToString();
                         membro.CargoIgreja = rdr["CargoIgreja"].ToString();
-                        membro.IgrejaID = Convert.ToInt32(rdr["IgrejaID"]);
-                        membro.Status = Convert.ToBoolean(rdr["Status"]);
+
+                        if (String.IsNullOrEmpty(membro.IgrejaID.ToString()))
+                        {
+                            membro.IgrejaID = null;
+                        }
+                        else
+                            membro.IgrejaID = Convert.ToInt32(rdr["IgrejaID"].ToString());
+
+
+                        if (String.IsNullOrEmpty(membro.Status.ToString()))
+                        {
+                            membro.Status = null;
+                        }
+                        else
+                            membro.Status = Convert.ToBoolean(rdr["Status"].ToString());
 
                         membros.Add(membro);
                     }

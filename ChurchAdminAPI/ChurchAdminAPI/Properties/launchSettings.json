@@ -19,6 +19,7 @@
     },
     "ChurchAdminAPI": {
       "commandName": "Project",
+      //"launchBrowser": false,
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
