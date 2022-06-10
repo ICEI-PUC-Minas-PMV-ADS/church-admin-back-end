@@ -305,7 +305,7 @@ namespace ChurchAdminAPI.Conexoes
             }
         }
 
-        public void DeletarMembro(string matricula)
+        public void DeletarMembro(int matricula)
         {
             try
             {
