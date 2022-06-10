@@ -58,7 +58,6 @@ namespace ChurchAdminAPI.Controllers
             {
                     return StatusCode(500, ex.Message);
             }
-
         }
         
 
@@ -82,7 +81,7 @@ namespace ChurchAdminAPI.Controllers
         }
 
         [HttpDelete("v1/DeletarMembro/{matricula}")]
-        public IActionResult DeletarMembro(string matricula)
+        public IActionResult DeletarMembro(int matricula)
         {
             try
             {

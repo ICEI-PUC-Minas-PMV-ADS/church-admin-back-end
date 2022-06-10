@@ -305,7 +305,7 @@ namespace ChurchAdminAPI.Conexoes
             }
         }
 
-        public void DeletarMembro(string matricula)
+        public void DeletarMembro(int matricula)
         {
             try
             {
@@ -455,22 +455,127 @@ namespace ChurchAdminAPI.Conexoes
 
                 using (SqlCommand cmd = new SqlCommand(sql, _conexao))
                 {
-                    cmd.Parameters.AddWithValue("NomeIgreja", igreja.NomeIgreja);
-                    cmd.Parameters.AddWithValue("RazaoSocial", igreja.RazaoSocial);
-                    cmd.Parameters.AddWithValue("Cnpj", igreja.Cnpj);
-                    cmd.Parameters.AddWithValue("Cep", igreja.Cep);
-                    cmd.Parameters.AddWithValue("Endereco", igreja.Endereco);
-                    cmd.Parameters.AddWithValue("Numero", igreja.Numero);
-                    cmd.Parameters.AddWithValue("Complemento", igreja.Complemento);
-                    cmd.Parameters.AddWithValue("Bairro", igreja.Bairro);
-                    cmd.Parameters.AddWithValue("Municipio", igreja.Municipio);
-                    cmd.Parameters.AddWithValue("Estado", igreja.Estado);
-                    cmd.Parameters.AddWithValue("Fone1", igreja.Fone1);
-                    cmd.Parameters.AddWithValue("Fone2", igreja.Fone2);
-                    cmd.Parameters.AddWithValue("Categoria", igreja.Categoria);
-                    cmd.Parameters.AddWithValue("DataCadastro", igreja.DataCadastro);
-                    cmd.Parameters.AddWithValue("DataFundacao", igreja.DataFundacao);
-                    cmd.Parameters.AddWithValue("Email", igreja.Email);
+
+                    if (String.IsNullOrEmpty(igreja.NomeIgreja))
+                    {
+                        cmd.Parameters.AddWithValue("NomeIgreja", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("NomeIgreja", igreja.NomeIgreja);
+
+                    if (String.IsNullOrEmpty(igreja.RazaoSocial))
+                    {
+                        cmd.Parameters.AddWithValue("RazaoSocial", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("RazaoSocial", igreja.RazaoSocial);
+
+                    if (String.IsNullOrEmpty(igreja.Cnpj))
+                    {
+                        cmd.Parameters.AddWithValue("Cnpj", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Cnpj", igreja.Cnpj);
+
+
+                    if (String.IsNullOrEmpty(igreja.Cep))
+                    {
+                        cmd.Parameters.AddWithValue("Cep", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Cep", igreja.Cep);
+
+                    if (String.IsNullOrEmpty(igreja.Endereco))
+                    {
+                        cmd.Parameters.AddWithValue("Endereco", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Endereco", igreja.Endereco);
+
+
+                    if (String.IsNullOrEmpty(igreja.Numero.ToString()))
+                    {
+                        cmd.Parameters.AddWithValue("Numero", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Numero", igreja.Numero);
+
+                    if (String.IsNullOrEmpty(igreja.Complemento))
+                    {
+                        cmd.Parameters.AddWithValue("Complemento", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Complemento", igreja.Complemento);
+
+                    if (String.IsNullOrEmpty(igreja.Bairro))
+                    {
+                        cmd.Parameters.AddWithValue("Bairro", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Bairro", igreja.Bairro);
+
+                    if (String.IsNullOrEmpty(igreja.Municipio))
+                    {
+                        cmd.Parameters.AddWithValue("Municipio", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Municipio", igreja.Municipio);
+
+
+                    if (String.IsNullOrEmpty(igreja.Estado))
+                    {
+                        cmd.Parameters.AddWithValue("Estado", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Estado", igreja.Estado);
+
+
+                    if (String.IsNullOrEmpty(igreja.Fone1))
+                    {
+                        cmd.Parameters.AddWithValue("Fone1", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Fone1", igreja.Fone1);
+
+
+                    if (String.IsNullOrEmpty(igreja.Fone2))
+                    {
+                        cmd.Parameters.AddWithValue("Fone2", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Fone2", igreja.Fone2);
+
+
+                    if (String.IsNullOrEmpty(igreja.Categoria))
+                    {
+                        cmd.Parameters.AddWithValue("Categoria", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Categoria", igreja.Categoria);
+
+
+                    if (String.IsNullOrEmpty(igreja.DataCadastro))
+                    {
+                        cmd.Parameters.AddWithValue("DataCadastro", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("DataCadastro", igreja.DataCadastro);
+
+
+                    if (String.IsNullOrEmpty(igreja.DataFundacao))
+                    {
+                        cmd.Parameters.AddWithValue("DataFundacao", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("DataFundacao", igreja.DataFundacao);
+
+
+                    if (String.IsNullOrEmpty(igreja.Email))
+                    {
+                        cmd.Parameters.AddWithValue("Email", DBNull.Value);
+                    }
+                    else
+                        cmd.Parameters.AddWithValue("Email", igreja.Email);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -593,7 +698,14 @@ namespace ChurchAdminAPI.Conexoes
                         igreja.Cnpj = rdr["Cnpj"].ToString();
                         igreja.Cep = rdr["Cep"].ToString();
                         igreja.Endereco = rdr["Endereco"].ToString();
-                        igreja.Numero = Convert.ToInt32(rdr["Numero"]);
+
+                        if (String.IsNullOrEmpty(igreja.Numero.ToString()))
+                        {
+                            igreja.Numero = null;
+                        }
+                        else
+                            igreja.Numero = Convert.ToInt32(rdr["Numero"]);
+                       
                         igreja.Complemento = rdr["Complemento"].ToString();
                         igreja.Bairro = rdr["Bairro"].ToString();
                         igreja.Municipio = rdr["Municipio"].ToString();
