@@ -58,8 +58,7 @@ namespace ChurchAdminAPI.Controllers
             {
                     return StatusCode(500, ex.Message);
             }
-        }
-        
+        } 
 
         [HttpPut("v1/AtualizarMembro")]
         public IActionResult AtualizarMembro(Models.Membro membro)
@@ -73,9 +72,9 @@ namespace ChurchAdminAPI.Controllers
             {
                 return StatusCode(400, ex.Message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500,ex.Message);
             }
 
         }

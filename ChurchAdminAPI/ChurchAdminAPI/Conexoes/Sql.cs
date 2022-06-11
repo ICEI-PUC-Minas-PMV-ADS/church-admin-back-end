@@ -67,164 +67,45 @@ namespace ChurchAdminAPI.Conexoes
 
                 using (SqlCommand cmd = new SqlCommand(sql, _conexao))
                 {
+                    cmd.Parameters.AddWithValue("Cpf", String.IsNullOrEmpty(membro.Cpf) ? DBNull.Value : membro.Cpf);
 
-                    if (String.IsNullOrEmpty(membro.Cpf))
-                    {
-                        cmd.Parameters.AddWithValue("Cpf", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Cpf", membro.Cpf);
+                    cmd.Parameters.AddWithValue("Nome", String.IsNullOrEmpty(membro.Nome) ? DBNull.Value : membro.Nome);
 
+                    cmd.Parameters.AddWithValue("Cep", String.IsNullOrEmpty(membro.Cep) ? DBNull.Value : membro.Cep);
 
-                    if (String.IsNullOrEmpty(membro.Nome))
-                    {
-                        cmd.Parameters.AddWithValue("Nome", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Nome", membro.Nome);
+                    cmd.Parameters.AddWithValue("Endereco", String.IsNullOrEmpty(membro.Endereco) ? DBNull.Value : membro.Endereco);
 
+                    cmd.Parameters.AddWithValue("Numero", String.IsNullOrEmpty(membro.Numero.ToString()) ? DBNull.Value : membro.Numero);
 
-                    if (String.IsNullOrEmpty(membro.Cep))
-                    {
-                        cmd.Parameters.AddWithValue("Cep", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Cep", membro.Cep);
+                    cmd.Parameters.AddWithValue("Complemento", String.IsNullOrEmpty(membro.Complemento) ? DBNull.Value : membro.Complemento);
+               
+                    cmd.Parameters.AddWithValue("Bairro", String.IsNullOrEmpty(membro.Bairro) ? DBNull.Value : membro.Bairro);
 
+                    cmd.Parameters.AddWithValue("Municipio", String.IsNullOrEmpty(membro.Municipio) ? DBNull.Value : membro.Municipio);
 
-                    if (String.IsNullOrEmpty(membro.Endereco))
-                    {
-                        cmd.Parameters.AddWithValue("Endereco", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Endereco", membro.Endereco);
+                    cmd.Parameters.AddWithValue("Estado", String.IsNullOrEmpty(membro.Estado) ? DBNull.Value : membro.Estado);
 
+                    cmd.Parameters.AddWithValue("Email", String.IsNullOrEmpty(membro.Email) ? DBNull.Value : membro.Email);
 
-                    if (String.IsNullOrEmpty(membro.Numero.ToString()))
-                    {
-                        cmd.Parameters.AddWithValue("Numero", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Numero", membro.Numero);
+                    cmd.Parameters.AddWithValue("Fone", String.IsNullOrEmpty(membro.Fone) ? DBNull.Value : membro.Fone);
 
+                    cmd.Parameters.AddWithValue("Sexo", String.IsNullOrEmpty(membro.Sexo.ToString()) ? DBNull.Value : membro.Sexo);
 
-                    if (String.IsNullOrEmpty(membro.Complemento))
-                    {
-                        cmd.Parameters.AddWithValue("Complemento", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Complemento", membro.Complemento);
+                    cmd.Parameters.AddWithValue("Nascimento", String.IsNullOrEmpty(membro.Nascimento) ? DBNull.Value : membro.Nascimento);
 
+                    cmd.Parameters.AddWithValue("Naturalidade", String.IsNullOrEmpty(membro.Naturalidade) ? DBNull.Value : membro.Naturalidade);
+         
+                    cmd.Parameters.AddWithValue("EstadoCivil", String.IsNullOrEmpty(membro.EstadoCivil) ? DBNull.Value : membro.EstadoCivil);
 
-                    if (String.IsNullOrEmpty(membro.Bairro))
-                    {
-                        cmd.Parameters.AddWithValue("Bairro", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Bairro", membro.Bairro);
+                    cmd.Parameters.AddWithValue("Profissao", String.IsNullOrEmpty(membro.Profissao) ? DBNull.Value : membro.Profissao);
 
+                    cmd.Parameters.AddWithValue("DataBatismoAguas", String.IsNullOrEmpty(membro.DataBatismoAguas) ? DBNull.Value : membro.DataBatismoAguas);
+                  
+                    cmd.Parameters.AddWithValue("CargoIgreja", String.IsNullOrEmpty(membro.CargoIgreja) ? DBNull.Value : membro.CargoIgreja);
 
-                    if (String.IsNullOrEmpty(membro.Municipio))
-                    {
-                        cmd.Parameters.AddWithValue("Municipio", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Municipio", membro.Municipio);
-
-
-                    if (String.IsNullOrEmpty(membro.Estado))
-                    {
-                        cmd.Parameters.AddWithValue("Estado", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Estado", membro.Estado);
-
-
-                    if (String.IsNullOrEmpty(membro.Email))
-                    {
-                        cmd.Parameters.AddWithValue("Email", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Email", membro.Email);
-
-
-                    if (String.IsNullOrEmpty(membro.Fone))
-                    {
-                        cmd.Parameters.AddWithValue("Fone", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Fone", membro.Fone);
-
-
-                    if (String.IsNullOrEmpty(membro.Sexo.ToString()))
-                    {
-                        cmd.Parameters.AddWithValue("Sexo", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Sexo", membro.Sexo);
-
-
-                    if (String.IsNullOrEmpty(membro.Nascimento))
-                    {
-                        cmd.Parameters.AddWithValue("Nascimento", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Nascimento", membro.Nascimento);
-
-
-                    if (String.IsNullOrEmpty(membro.Naturalidade))
-                    {
-                        cmd.Parameters.AddWithValue("Naturalidade", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Naturalidade", membro.Naturalidade);
-
-
-                    if (String.IsNullOrEmpty(membro.EstadoCivil))
-                    {
-                        cmd.Parameters.AddWithValue("EstadoCivil", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("EstadoCivil", membro.EstadoCivil);
-
-
-                    if (String.IsNullOrEmpty(membro.Profissao))
-                    {
-                        cmd.Parameters.AddWithValue("Profissao", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Profissao", membro.Profissao);
-
-
-                    if (String.IsNullOrEmpty(membro.DataBatismoAguas))
-                    {
-                        cmd.Parameters.AddWithValue("DataBatismoAguas", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("DataBatismoAguas", membro.DataBatismoAguas);
-
-
-                    if (String.IsNullOrEmpty(membro.CargoIgreja))
-                    {
-                        cmd.Parameters.AddWithValue("CargoIgreja", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("CargoIgreja", membro.CargoIgreja);
-
-
-                    if (String.IsNullOrEmpty(membro.IgrejaID.ToString()))
-                    {
-                        cmd.Parameters.AddWithValue("IgrejaID", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("IgrejaID", membro.IgrejaID);
-
-                    if (String.IsNullOrEmpty(membro.Status.ToString()))
-                    {
-                        cmd.Parameters.AddWithValue("Status", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Status", membro.Status);
+                    cmd.Parameters.AddWithValue("IgrejaID", String.IsNullOrEmpty(membro.IgrejaID.ToString()) ? DBNull.Value : membro.IgrejaID);
+               
+                    cmd.Parameters.AddWithValue("Status", String.IsNullOrEmpty(membro.Status.ToString()) ? DBNull.Value : membro.Status);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -351,49 +232,22 @@ namespace ChurchAdminAPI.Conexoes
                         membro.Nome = rdr["Nome"].ToString();
                         membro.Cep = rdr["Cep"].ToString();
                         membro.Endereco = rdr["Endereco"].ToString();
-
-                        if (String.IsNullOrEmpty(membro.Numero.ToString()))
-                        {
-                            membro.Numero = null;
-                        }
-                        else
-                            membro.Numero = Convert.ToInt32(rdr["Numero"]);
-
+                        membro.Numero = String.IsNullOrEmpty(rdr["Numero"].ToString()) ? null : Convert.ToInt32(rdr["Numero"].ToString());
                         membro.Complemento = rdr["Complemento"].ToString();
                         membro.Bairro = rdr["Bairro"].ToString();
                         membro.Municipio = rdr["Municipio"].ToString();
                         membro.Estado = rdr["Estado"].ToString();
                         membro.Email = rdr["Email"].ToString();
                         membro.Fone = rdr["Fone"].ToString();
-
-                        if (String.IsNullOrEmpty(membro.Sexo.ToString()))
-                        {
-                            membro.Sexo = null;
-                        }
-                        else
-                            membro.Sexo = Convert.ToChar(rdr["Sexo"].ToString());
-
+                        membro.Sexo = String.IsNullOrEmpty(rdr["Sexo"].ToString()) ? null : Convert.ToChar(rdr["Sexo"].ToString());
                         membro.Nascimento = rdr["Nascimento"].ToString();
                         membro.Naturalidade = rdr["Naturalidade"].ToString();
                         membro.EstadoCivil = rdr["EstadoCivil"].ToString();
                         membro.Profissao = rdr["Profissao"].ToString();
                         membro.DataBatismoAguas = rdr["DataBatismoAguas"].ToString();
                         membro.CargoIgreja = rdr["CargoIgreja"].ToString();
-
-                        if (String.IsNullOrEmpty(membro.IgrejaID.ToString()))
-                        {
-                            membro.IgrejaID = null;
-                        }
-                        else
-                            membro.IgrejaID = Convert.ToInt32(rdr["IgrejaID"].ToString());
-
-
-                        if (String.IsNullOrEmpty(membro.Status.ToString()))
-                        {
-                            membro.Status = null;
-                        }
-                        else
-                            membro.Status = Convert.ToBoolean(rdr["Status"].ToString());
+                        membro.IgrejaID = String.IsNullOrEmpty(rdr["IgrejaID"].ToString()) ? null : Convert.ToInt32(rdr["IgrejaID"].ToString());
+                        membro.Status = String.IsNullOrEmpty(rdr["Status"].ToString()) ? null : Convert.ToBoolean(rdr["Status"].ToString());
 
                         membros.Add(membro);
                     }
@@ -455,127 +309,37 @@ namespace ChurchAdminAPI.Conexoes
 
                 using (SqlCommand cmd = new SqlCommand(sql, _conexao))
                 {
+                    cmd.Parameters.AddWithValue("NomeIgreja", String.IsNullOrEmpty(igreja.NomeIgreja) ? DBNull.Value : igreja.NomeIgreja);
 
-                    if (String.IsNullOrEmpty(igreja.NomeIgreja))
-                    {
-                        cmd.Parameters.AddWithValue("NomeIgreja", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("NomeIgreja", igreja.NomeIgreja);
+                    cmd.Parameters.AddWithValue("RazaoSocial", String.IsNullOrEmpty(igreja.RazaoSocial) ? DBNull.Value : igreja.RazaoSocial);
 
-                    if (String.IsNullOrEmpty(igreja.RazaoSocial))
-                    {
-                        cmd.Parameters.AddWithValue("RazaoSocial", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("RazaoSocial", igreja.RazaoSocial);
+                    cmd.Parameters.AddWithValue("Cnpj", String.IsNullOrEmpty(igreja.Cnpj) ? DBNull.Value : igreja.Cnpj);
 
-                    if (String.IsNullOrEmpty(igreja.Cnpj))
-                    {
-                        cmd.Parameters.AddWithValue("Cnpj", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Cnpj", igreja.Cnpj);
+                    cmd.Parameters.AddWithValue("Cep", String.IsNullOrEmpty(igreja.Cep) ? DBNull.Value : igreja.Cep);
 
+                    cmd.Parameters.AddWithValue("Endereco", String.IsNullOrEmpty(igreja.Endereco) ? DBNull.Value : igreja.Endereco);
 
-                    if (String.IsNullOrEmpty(igreja.Cep))
-                    {
-                        cmd.Parameters.AddWithValue("Cep", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Cep", igreja.Cep);
+                    cmd.Parameters.AddWithValue("Numero", String.IsNullOrEmpty(igreja.Numero.ToString()) ? DBNull.Value : igreja.Numero);
 
-                    if (String.IsNullOrEmpty(igreja.Endereco))
-                    {
-                        cmd.Parameters.AddWithValue("Endereco", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Endereco", igreja.Endereco);
+                    cmd.Parameters.AddWithValue("Complemento", String.IsNullOrEmpty(igreja.Complemento) ? DBNull.Value : igreja.Complemento);
 
+                    cmd.Parameters.AddWithValue("Bairro", String.IsNullOrEmpty(igreja.Bairro) ? DBNull.Value : igreja.Bairro);
 
-                    if (String.IsNullOrEmpty(igreja.Numero.ToString()))
-                    {
-                        cmd.Parameters.AddWithValue("Numero", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Numero", igreja.Numero);
+                    cmd.Parameters.AddWithValue("Municipio", String.IsNullOrEmpty(igreja.Municipio) ? DBNull.Value : igreja.Municipio);
 
-                    if (String.IsNullOrEmpty(igreja.Complemento))
-                    {
-                        cmd.Parameters.AddWithValue("Complemento", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Complemento", igreja.Complemento);
+                    cmd.Parameters.AddWithValue("Estado", String.IsNullOrEmpty(igreja.Estado) ? DBNull.Value : igreja.Estado);
 
-                    if (String.IsNullOrEmpty(igreja.Bairro))
-                    {
-                        cmd.Parameters.AddWithValue("Bairro", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Bairro", igreja.Bairro);
+                    cmd.Parameters.AddWithValue("Fone1", String.IsNullOrEmpty(igreja.Fone1) ? DBNull.Value : igreja.Fone1);
 
-                    if (String.IsNullOrEmpty(igreja.Municipio))
-                    {
-                        cmd.Parameters.AddWithValue("Municipio", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Municipio", igreja.Municipio);
+                    cmd.Parameters.AddWithValue("Fone2", String.IsNullOrEmpty(igreja.Fone2) ? DBNull.Value : igreja.Fone2);
 
+                    cmd.Parameters.AddWithValue("Categoria", String.IsNullOrEmpty(igreja.Categoria) ? DBNull.Value : igreja.Categoria);
 
-                    if (String.IsNullOrEmpty(igreja.Estado))
-                    {
-                        cmd.Parameters.AddWithValue("Estado", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Estado", igreja.Estado);
+                    cmd.Parameters.AddWithValue("DataCadastro", String.IsNullOrEmpty(igreja.DataCadastro) ? DBNull.Value : igreja.DataCadastro);
 
+                    cmd.Parameters.AddWithValue("DataFundacao", String.IsNullOrEmpty(igreja.DataFundacao) ? DBNull.Value : igreja.DataFundacao);
 
-                    if (String.IsNullOrEmpty(igreja.Fone1))
-                    {
-                        cmd.Parameters.AddWithValue("Fone1", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Fone1", igreja.Fone1);
-
-
-                    if (String.IsNullOrEmpty(igreja.Fone2))
-                    {
-                        cmd.Parameters.AddWithValue("Fone2", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Fone2", igreja.Fone2);
-
-
-                    if (String.IsNullOrEmpty(igreja.Categoria))
-                    {
-                        cmd.Parameters.AddWithValue("Categoria", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Categoria", igreja.Categoria);
-
-
-                    if (String.IsNullOrEmpty(igreja.DataCadastro))
-                    {
-                        cmd.Parameters.AddWithValue("DataCadastro", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("DataCadastro", igreja.DataCadastro);
-
-
-                    if (String.IsNullOrEmpty(igreja.DataFundacao))
-                    {
-                        cmd.Parameters.AddWithValue("DataFundacao", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("DataFundacao", igreja.DataFundacao);
-
-
-                    if (String.IsNullOrEmpty(igreja.Email))
-                    {
-                        cmd.Parameters.AddWithValue("Email", DBNull.Value);
-                    }
-                    else
-                        cmd.Parameters.AddWithValue("Email", igreja.Email);
+                    cmd.Parameters.AddWithValue("Email", String.IsNullOrEmpty(igreja.Email) ? DBNull.Value : igreja.Email);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -698,14 +462,7 @@ namespace ChurchAdminAPI.Conexoes
                         igreja.Cnpj = rdr["Cnpj"].ToString();
                         igreja.Cep = rdr["Cep"].ToString();
                         igreja.Endereco = rdr["Endereco"].ToString();
-
-                        if (String.IsNullOrEmpty(igreja.Numero.ToString()))
-                        {
-                            igreja.Numero = null;
-                        }
-                        else
-                            igreja.Numero = Convert.ToInt32(rdr["Numero"]);
-                       
+                        igreja.Numero = String.IsNullOrEmpty(rdr["Numero"].ToString()) ? null : Convert.ToInt32(rdr["Numero"].ToString());
                         igreja.Complemento = rdr["Complemento"].ToString();
                         igreja.Bairro = rdr["Bairro"].ToString();
                         igreja.Municipio = rdr["Municipio"].ToString();

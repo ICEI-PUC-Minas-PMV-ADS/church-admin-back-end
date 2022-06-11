@@ -49,9 +49,9 @@ namespace ChurchAdminAPI.Controllers
             {
                 return StatusCode(400, ex.Message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500, ex.Message);
             }
             
         }
@@ -68,9 +68,9 @@ namespace ChurchAdminAPI.Controllers
             {
                 return StatusCode(400, ex.Message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500, ex.Message);
             }
 
         }
@@ -93,7 +93,6 @@ namespace ChurchAdminAPI.Controllers
             }
 
         }
-
 
         [HttpGet("v1/ListarIgrejas")]
         public IActionResult ListarIgrejas()
