@@ -18,7 +18,7 @@ namespace ChurchAdminAPI.Controllers
         public PdfController(IConverter converter)
         {
             _converter = converter;
-            _sql = new Sql();
+            _sql = new Sql(); 
         }
 
 
