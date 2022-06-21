@@ -10,7 +10,7 @@ namespace ChurchAdminAPI.Conexoes
 
         public Sql()
         {
-            string conexao = System.IO.File.ReadAllText(@"C:\ADS\stringConexao.txt");
+            string conexao = "Server=5.161.71.7;Database=DB_ChurchAdmin;User Id =Meriane;Password='{6qky>\\&`>'";
             this._conexao = new SqlConnection(conexao);
         }
 
