@@ -490,44 +490,7 @@ namespace ChurchAdminAPI.Conexoes
       
 
 
-        //Usuario
-        public Models.Usuario BuscarUsuario(string login, string senha)
-        {
-            try
-            {
-                _conexao.Open();
-
-                string query = @"Select * FROM USUARIO
-                                 WHERE login = @login
-                                 AND senha = @senha";
-
-                using (var cmd = new SqlCommand(query, _conexao))
-                {
-                    cmd.Parameters.AddWithValue("@login", login);
-                    cmd.Parameters.AddWithValue("@senha", senha);
-
-                    var rdr = cmd.ExecuteReader();
-
-                    if (rdr.Read())
-                    {
-                        var usuario = new Models.Usuario();
-                        usuario.Login = login;
-                        usuario.Senha = rdr["senha"].ToString();
-
-                        return usuario;
-                    }
-                    else
-                    {
-                        throw new InvalidOperationException("Email ou senha Inválidos!");
-                    }
-                }
-            }
-            finally
-            {
-                _conexao.Close();
-            }
-
-        }
+      
 
   
     }

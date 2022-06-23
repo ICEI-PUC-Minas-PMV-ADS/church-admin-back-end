@@ -21,26 +21,7 @@ namespace ChurchAdminAPI.Controllers
         {
             try
             {
-                //if (!Utils.Validacao.ValidaCNPJ(igreja.Cnpj))
-                //{
-                //    throw new InvalidOperationException("Cnpj inválido!");
-                //}
-
-                //if (string.IsNullOrWhiteSpace(igreja.NomeIgreja) || igreja.NomeIgreja.Length < 1 || igreja.NomeIgreja.Length > 80)
-                //{
-                //    throw new InvalidOperationException("O nome da igreja deve conter entre 1 a 80 caracteres.");
-                //}
-
-                //if (!Utils.Validacao.ValidaCep(igreja.Cep))
-                //{
-                //    throw new InvalidOperationException("CEP inválido!");
-                //}
-
-                //if (!Utils.Validacao.ValidaEmail(igreja.Email))
-                //{
-                //    throw new InvalidOperationException("Email inválido!");
-                //}
-
+                
                 _sql.CadastrarIgreja(igreja);
 
                 return StatusCode(200);
@@ -87,9 +68,9 @@ namespace ChurchAdminAPI.Controllers
             {
                 return StatusCode(400, ex.Message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500, ex.Message);
             }
 
         }
@@ -107,9 +88,9 @@ namespace ChurchAdminAPI.Controllers
             {
                 return StatusCode(400, ex.Message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500, ex.Message);
             }
         }
 
